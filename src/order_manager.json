@@ -1,0 +1,1171 @@
+{
+  "address": "EHxoxzqUShPuJbcSVFvqAVizLJxUpENTKnMBUGKSgQkc",
+  "metadata": {
+    "name": "order_manager",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "claim_advance",
+      "discriminator": [
+        225,
+        108,
+        86,
+        138,
+        99,
+        172,
+        89,
+        142
+      ],
+      "accounts": [
+        {
+          "name": "seller",
+          "signer": true,
+          "relations": [
+            "order_state"
+          ]
+        },
+        {
+          "name": "seller_token_account",
+          "writable": true
+        },
+        {
+          "name": "vault_token_account",
+          "writable": true
+        },
+        {
+          "name": "vault_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "order_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  111,
+                  114,
+                  100,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "trade_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "config_state",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "trade_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "claim_order",
+      "discriminator": [
+        164,
+        202,
+        83,
+        197,
+        77,
+        171,
+        96,
+        234
+      ],
+      "accounts": [
+        {
+          "name": "seller",
+          "signer": true,
+          "relations": [
+            "order_state"
+          ]
+        },
+        {
+          "name": "seller_token_account",
+          "writable": true
+        },
+        {
+          "name": "vault_token_account",
+          "writable": true
+        },
+        {
+          "name": "vault_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "order_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  111,
+                  114,
+                  100,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "trade_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "config_state",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "clock",
+          "address": "SysvarC1ock11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "trade_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "confirm_order",
+      "discriminator": [
+        142,
+        28,
+        201,
+        134,
+        143,
+        201,
+        118,
+        244
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "signer": true,
+          "relations": [
+            "order_state"
+          ]
+        },
+        {
+          "name": "order_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  111,
+                  114,
+                  100,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "trade_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "clock",
+          "address": "SysvarC1ock11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "trade_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "create_order",
+      "discriminator": [
+        141,
+        54,
+        37,
+        207,
+        237,
+        210,
+        250,
+        215
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "seller"
+        },
+        {
+          "name": "order_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  111,
+                  114,
+                  100,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "trade_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "usdc_mint"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "trade_id",
+          "type": "u64"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        },
+        {
+          "name": "payment_mode",
+          "type": {
+            "defined": {
+              "name": "PaymentMode"
+            }
+          }
+        },
+        {
+          "name": "advance_percentage",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "initialize",
+      "discriminator": [
+        175,
+        175,
+        109,
+        31,
+        13,
+        152,
+        155,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "initializer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "config_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "vault_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "initial_admin",
+          "type": "pubkey"
+        },
+        {
+          "name": "initial_max_delivery_time",
+          "type": "i64"
+        },
+        {
+          "name": "initial_max_sign_time",
+          "type": "i64"
+        },
+        {
+          "name": "vault_authority_bump",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "pay_order",
+      "discriminator": [
+        52,
+        142,
+        74,
+        106,
+        147,
+        51,
+        53,
+        17
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "writable": true,
+          "signer": true,
+          "relations": [
+            "order_state"
+          ]
+        },
+        {
+          "name": "buyer_token_account",
+          "writable": true
+        },
+        {
+          "name": "vault_token_account",
+          "writable": true
+        },
+        {
+          "name": "vault_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "order_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  111,
+                  114,
+                  100,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "trade_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "config_state",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "usdc_mint"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "trade_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "redeem_order",
+      "discriminator": [
+        16,
+        54,
+        3,
+        160,
+        206,
+        95,
+        53,
+        189
+      ],
+      "accounts": [
+        {
+          "name": "buyer",
+          "signer": true,
+          "relations": [
+            "order_state"
+          ]
+        },
+        {
+          "name": "buyer_token_account",
+          "writable": true
+        },
+        {
+          "name": "vault_token_account",
+          "writable": true
+        },
+        {
+          "name": "vault_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "order_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  111,
+                  114,
+                  100,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "trade_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "config_state",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "clock",
+          "address": "SysvarC1ock11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "trade_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "set_admin",
+      "discriminator": [
+        251,
+        163,
+        0,
+        52,
+        91,
+        194,
+        187,
+        92
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "config_state"
+          ]
+        },
+        {
+          "name": "config_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "new_admin",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "set_max_delivery_time",
+      "discriminator": [
+        55,
+        112,
+        200,
+        180,
+        196,
+        10,
+        193,
+        37
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "config_state"
+          ]
+        },
+        {
+          "name": "config_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "time_in_seconds",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "set_max_sign_time",
+      "discriminator": [
+        178,
+        110,
+        155,
+        25,
+        237,
+        43,
+        209,
+        116
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "config_state"
+          ]
+        },
+        {
+          "name": "config_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "time_in_seconds",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "set_order_state",
+      "discriminator": [
+        188,
+        16,
+        224,
+        190,
+        154,
+        37,
+        240,
+        15
+      ],
+      "accounts": [
+        {
+          "name": "admin",
+          "signer": true,
+          "relations": [
+            "config_state"
+          ]
+        },
+        {
+          "name": "order_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  111,
+                  114,
+                  100,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "trade_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "config_state",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  111,
+                  110,
+                  102,
+                  105,
+                  103
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "args": [
+        {
+          "name": "trade_id",
+          "type": "u64"
+        },
+        {
+          "name": "new_status",
+          "type": {
+            "defined": {
+              "name": "OrderStatus"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "ConfigState",
+      "discriminator": [
+        193,
+        77,
+        160,
+        128,
+        208,
+        254,
+        180,
+        135
+      ]
+    },
+    {
+      "name": "OrderState",
+      "discriminator": [
+        60,
+        123,
+        67,
+        162,
+        96,
+        43,
+        173,
+        225
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "ZeroAmount",
+      "msg": "Amount must be greater than zero."
+    },
+    {
+      "code": 6001,
+      "name": "InvalidState",
+      "msg": "Invalid order state for this action."
+    },
+    {
+      "code": 6002,
+      "name": "InvalidStateTransition",
+      "msg": "Invalid state transition."
+    },
+    {
+      "code": 6003,
+      "name": "InvalidBuyer",
+      "msg": "Invalid buyer for this order."
+    },
+    {
+      "code": 6004,
+      "name": "InvalidSeller",
+      "msg": "Invalid seller for this order."
+    },
+    {
+      "code": 6005,
+      "name": "InvalidAdmin",
+      "msg": "Signer is not the admin."
+    },
+    {
+      "code": 6006,
+      "name": "InvalidPaymentMode",
+      "msg": "Invalid payment mode for this action."
+    },
+    {
+      "code": 6007,
+      "name": "InvalidAdvancePercentage",
+      "msg": "Invalid advance percentage (must be 1-100 for Advance mode)."
+    },
+    {
+      "code": 6008,
+      "name": "AdvanceAlreadyClaimed",
+      "msg": "Advance payment has already been claimed."
+    },
+    {
+      "code": 6009,
+      "name": "DeliveryTimeNotExceeded",
+      "msg": "Delivery time has not yet been exceeded."
+    },
+    {
+      "code": 6010,
+      "name": "SignTimeNotExceeded",
+      "msg": "Sign time has not yet been exceeded."
+    },
+    {
+      "code": 6011,
+      "name": "NothingToClaim",
+      "msg": "Nothing to claim or redeem."
+    },
+    {
+      "code": 6012,
+      "name": "NothingToRedeem",
+      "msg": "Nothing to redeem."
+    },
+    {
+      "code": 6013,
+      "name": "InvalidOwner",
+      "msg": "Provided token account is not owned by the expected owner."
+    },
+    {
+      "code": 6014,
+      "name": "InvalidMint",
+      "msg": "Provided token account's mint does not match the order/vault mint."
+    },
+    {
+      "code": 6015,
+      "name": "InvalidVaultOwner",
+      "msg": "Vault token account is not owned by the vault authority PDA."
+    },
+    {
+      "code": 6016,
+      "name": "InvalidTargetState",
+      "msg": "Invalid target state for set_order_state."
+    },
+    {
+      "code": 6017,
+      "name": "AmountCalculationError",
+      "msg": "Error during amount calculation."
+    },
+    {
+      "code": 6018,
+      "name": "TimestampCalculationError",
+      "msg": "Error during timestamp calculation."
+    },
+    {
+      "code": 6019,
+      "name": "ClaimConditionsNotMet",
+      "msg": "Claim conditions not met (must be Confirmed or Signed+Timeout)."
+    }
+  ],
+  "types": [
+    {
+      "name": "ConfigState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "admin",
+            "type": "pubkey"
+          },
+          {
+            "name": "max_delivery_time",
+            "type": "i64"
+          },
+          {
+            "name": "max_sign_time",
+            "type": "i64"
+          },
+          {
+            "name": "vault_authority_bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OrderState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "buyer",
+            "type": "pubkey"
+          },
+          {
+            "name": "seller",
+            "type": "pubkey"
+          },
+          {
+            "name": "mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "trade_id",
+            "type": "u64"
+          },
+          {
+            "name": "order_amount",
+            "type": "u64"
+          },
+          {
+            "name": "paid_amount",
+            "type": "u64"
+          },
+          {
+            "name": "claimed_amount",
+            "type": "u64"
+          },
+          {
+            "name": "payment_mode",
+            "type": {
+              "defined": {
+                "name": "PaymentMode"
+              }
+            }
+          },
+          {
+            "name": "advance_percentage",
+            "type": "u8"
+          },
+          {
+            "name": "status",
+            "type": {
+              "defined": {
+                "name": "OrderStatus"
+              }
+            }
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "paid_at",
+            "type": "i64"
+          },
+          {
+            "name": "shipped_at",
+            "type": "i64"
+          },
+          {
+            "name": "signed_at",
+            "type": "i64"
+          },
+          {
+            "name": "confirmed_at",
+            "type": "i64"
+          },
+          {
+            "name": "completed_at",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "OrderStatus",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Unpaid"
+          },
+          {
+            "name": "Paid"
+          },
+          {
+            "name": "Shipped"
+          },
+          {
+            "name": "Signed"
+          },
+          {
+            "name": "Confirmed"
+          },
+          {
+            "name": "Completed"
+          },
+          {
+            "name": "Unfulfilled"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PaymentMode",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Direct"
+          },
+          {
+            "name": "Advance"
+          }
+        ]
+      }
+    }
+  ]
+}
