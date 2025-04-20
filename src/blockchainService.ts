@@ -77,7 +77,7 @@ export async function getAllOrderStates(): Promise<OrderData[]> {
 
 
 // Admin: Set Order State
-export async function setOrderStateAdmin(tradeId: string | number | anchor.BN, newStatus: OrderStatus): Promise<string | null> {
+export async function setOrderStateAdmin(tradeId: string | number | anchor.BN, newStatus: any): Promise<string | null> {
     const bnTradeId = new anchor.BN(tradeId);
     const [orderPDA] = findOrderStatePDA(bnTradeId);
     const [configPDA] = findConfigPDA();

@@ -16,8 +16,8 @@ app.use(express.json());
 
 // --- In-Memory Product "Database" ---
 let products: Product[] = [
-    { id: uuidv4(), name: "Demo Widget A", priceLamports: "15000000", seller: "SellerPublicKeyA...", imageUrl: "https://via.placeholder.com/150/92c952" },
-    { id: uuidv4(), name: "Demo Gadget B", priceLamports: "25000000", seller: "SellerPublicKeyB...", imageUrl: "https://via.placeholder.com/150/771796" },
+    { id: uuidv4(), name: "Demo Widget A", priceLamports: "1000000", seller: "HH2kT3RCpydk5SZKEmVVTCHAeMANU32NU63mmd88UT88", imageUrl: "https://i1.hdslb.com/bfs/face/84b5e382ad7b9f986b6d5c983022298f7aa4dba8.jpg@96w_96h_1c_1s_!web-avatar.avif" },
+    { id: uuidv4(), name: "Demo Gadget B", priceLamports: "2000000", seller: "HH2kT3RCpydk5SZKEmVVTCHAeMANU32NU63mmd88UT88", imageUrl: "https://i1.hdslb.com/bfs/face/84b5e382ad7b9f986b6d5c983022298f7aa4dba8.jpg@96w_96h_1c_1s_!web-avatar.avif" },
 ];
 
 // --- API Endpoints ---
@@ -72,11 +72,11 @@ app.post('/admin/orders/:tradeId/set-state', (async (req: Request, res: Response
         return res.status(400).json({ error: "Missing tradeId or status" });
     }
 
-    let targetStatus: OrderStatus;
+    let targetStatus: any;
     if (status === 'Shipped') {
-        targetStatus = OrderStatus.Shipped;
+        targetStatus = {shipped:{}};
     } else if (status === 'Signed') {
-        targetStatus = OrderStatus.Signed;
+        targetStatus = {signed:{}};
     } else {
         return res.status(400).json({ error: "Invalid status value. Use 'Shipped' or 'Signed'." });
     }
