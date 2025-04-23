@@ -17,9 +17,9 @@ const connection = new Connection(RPC_ENDPOINT, {
     confirmTransactionInitialTimeout: 60 * 1000, // 1 minute
 });
 
-const programId = new PublicKey("EHxoxzqUShPuJbcSVFvqAVizLJxUpENTKnMBUGKSgQkc");
+const programId = new PublicKey("FYpxHqGByHTMTPZ2gda59kvrVcA7Camx5LHFN151zr53");
 
-const adminKeypairPath = "~/.config/solana/id.json"; // Or your specific admin keypair path
+const adminKeypairPath = "~/.config/solana/admin.json"; // Or your specific admin keypair path
 
 // --- Load Admin Keypair ---
 function loadKeypair(path: string): Keypair {
