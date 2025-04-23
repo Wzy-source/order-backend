@@ -65,7 +65,6 @@ export async function getAllOrderStates(): Promise<OrderData[]> {
             createdAt: acc.account.createdAt.toString(),
             paidAt: acc.account.paidAt.toString(),
             shippedAt: acc.account.shippedAt.toString(),
-            signedAt: acc.account.signedAt.toString(),
             confirmedAt: acc.account.confirmedAt.toString(),
             completedAt: acc.account.completedAt.toString(),
         }));

@@ -75,8 +75,8 @@ app.post('/admin/orders/:tradeId/set-state', (async (req: Request, res: Response
     let targetStatus: any;
     if (status === 'Shipped') {
         targetStatus = {shipped:{}};
-    } else if (status === 'Signed') {
-        targetStatus = {signed:{}};
+    } else if (status === 'Confirmed') {
+        targetStatus = {confirmed:{}};
     } else {
         return res.status(400).json({ error: "Invalid status value. Use 'Shipped' or 'Signed'." });
     }

@@ -232,60 +232,6 @@ export type OrderManager = {
       ]
     },
     {
-      "name": "confirmOrder",
-      "discriminator": [
-        142,
-        28,
-        201,
-        134,
-        143,
-        201,
-        118,
-        244
-      ],
-      "accounts": [
-        {
-          "name": "buyer",
-          "signer": true,
-          "relations": [
-            "orderState"
-          ]
-        },
-        {
-          "name": "orderState",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  111,
-                  114,
-                  100,
-                  101,
-                  114
-                ]
-              },
-              {
-                "kind": "arg",
-                "path": "tradeId"
-              }
-            ]
-          }
-        },
-        {
-          "name": "clock",
-          "address": "SysvarC1ock11111111111111111111111111111111"
-        }
-      ],
-      "args": [
-        {
-          "name": "tradeId",
-          "type": "u64"
-        }
-      ]
-    },
-    {
       "name": "createOrder",
       "discriminator": [
         141,
@@ -443,10 +389,6 @@ export type OrderManager = {
         },
         {
           "name": "initialMaxDeliveryTime",
-          "type": "i64"
-        },
-        {
-          "name": "initialMaxSignTime",
           "type": "i64"
         },
         {
@@ -772,53 +714,6 @@ export type OrderManager = {
       ]
     },
     {
-      "name": "setMaxSignTime",
-      "discriminator": [
-        178,
-        110,
-        155,
-        25,
-        237,
-        43,
-        209,
-        116
-      ],
-      "accounts": [
-        {
-          "name": "admin",
-          "signer": true,
-          "relations": [
-            "configState"
-          ]
-        },
-        {
-          "name": "configState",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  99,
-                  111,
-                  110,
-                  102,
-                  105,
-                  103
-                ]
-              }
-            ]
-          }
-        }
-      ],
-      "args": [
-        {
-          "name": "timeInSeconds",
-          "type": "i64"
-        }
-      ]
-    },
-    {
       "name": "setOrderState",
       "discriminator": [
         188,
@@ -1040,10 +935,6 @@ export type OrderManager = {
             "type": "i64"
           },
           {
-            "name": "maxSignTime",
-            "type": "i64"
-          },
-          {
             "name": "vaultAuthorityBump",
             "type": "u8"
           }
@@ -1116,10 +1007,6 @@ export type OrderManager = {
             "type": "i64"
           },
           {
-            "name": "signedAt",
-            "type": "i64"
-          },
-          {
             "name": "confirmedAt",
             "type": "i64"
           },
@@ -1143,9 +1030,6 @@ export type OrderManager = {
           },
           {
             "name": "shipped"
-          },
-          {
-            "name": "signed"
           },
           {
             "name": "confirmed"

@@ -9,7 +9,6 @@ export enum OrderStatus {
     Unpaid,
     Paid,
     Shipped,
-    Signed,
     Confirmed,
     Completed,
     Unfulfilled,
@@ -40,7 +39,6 @@ export interface OrderData {
     createdAt: string;
     paidAt: string;
     shippedAt: string;
-    signedAt: string;
     confirmedAt: string;
     completedAt: string;
 }
