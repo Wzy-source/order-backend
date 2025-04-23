@@ -917,7 +917,7 @@ export type OrderManager = {
     {
       "code": 6019,
       "name": "claimConditionsNotMet",
-      "msg": "Claim conditions not met (must be Confirmed or Signed+Timeout)."
+      "msg": "Claim conditions not met (must be Confirmed)."
     }
   ],
   "types": [
