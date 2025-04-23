@@ -226,60 +226,6 @@
       ]
     },
     {
-      "name": "confirm_order",
-      "discriminator": [
-        142,
-        28,
-        201,
-        134,
-        143,
-        201,
-        118,
-        244
-      ],
-      "accounts": [
-        {
-          "name": "buyer",
-          "signer": true,
-          "relations": [
-            "order_state"
-          ]
-        },
-        {
-          "name": "order_state",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  111,
-                  114,
-                  100,
-                  101,
-                  114
-                ]
-              },
-              {
-                "kind": "arg",
-                "path": "trade_id"
-              }
-            ]
-          }
-        },
-        {
-          "name": "clock",
-          "address": "SysvarC1ock11111111111111111111111111111111"
-        }
-      ],
-      "args": [
-        {
-          "name": "trade_id",
-          "type": "u64"
-        }
-      ]
-    },
-    {
       "name": "create_order",
       "discriminator": [
         141,
@@ -437,10 +383,6 @@
         },
         {
           "name": "initial_max_delivery_time",
-          "type": "i64"
-        },
-        {
-          "name": "initial_max_sign_time",
           "type": "i64"
         },
         {
@@ -766,53 +708,6 @@
       ]
     },
     {
-      "name": "set_max_sign_time",
-      "discriminator": [
-        178,
-        110,
-        155,
-        25,
-        237,
-        43,
-        209,
-        116
-      ],
-      "accounts": [
-        {
-          "name": "admin",
-          "signer": true,
-          "relations": [
-            "config_state"
-          ]
-        },
-        {
-          "name": "config_state",
-          "writable": true,
-          "pda": {
-            "seeds": [
-              {
-                "kind": "const",
-                "value": [
-                  99,
-                  111,
-                  110,
-                  102,
-                  105,
-                  103
-                ]
-              }
-            ]
-          }
-        }
-      ],
-      "args": [
-        {
-          "name": "time_in_seconds",
-          "type": "i64"
-        }
-      ]
-    },
-    {
       "name": "set_order_state",
       "discriminator": [
         188,
@@ -1016,7 +911,7 @@
     {
       "code": 6019,
       "name": "ClaimConditionsNotMet",
-      "msg": "Claim conditions not met (must be Confirmed or Signed+Timeout)."
+      "msg": "Claim conditions not met (must be Confirmed)."
     }
   ],
   "types": [
@@ -1031,10 +926,6 @@
           },
           {
             "name": "max_delivery_time",
-            "type": "i64"
-          },
-          {
-            "name": "max_sign_time",
             "type": "i64"
           },
           {
@@ -1110,10 +1001,6 @@
             "type": "i64"
           },
           {
-            "name": "signed_at",
-            "type": "i64"
-          },
-          {
             "name": "confirmed_at",
             "type": "i64"
           },
@@ -1137,9 +1024,6 @@
           },
           {
             "name": "Shipped"
-          },
-          {
-            "name": "Signed"
           },
           {
             "name": "Confirmed"
