@@ -24,12 +24,12 @@ let products: Product[] = [
 
 // == Product Endpoints ==
 // No change needed for sync handlers usually
-app.get('/api/products', (req: Request, res: Response) => {
+app.get('/products', (req: Request, res: Response) => {
     console.log("GET /products request received");
     res.json(products);
 });
 
-app.post('/api/products', (async (req: Request, res: Response) => {
+app.post('/products', (async (req: Request, res: Response) => {
     console.log("POST /products request received", req.body);
     const { name, priceLamports, seller, imageUrl } = req.body;
     if (!name || !priceLamports || !seller) {
@@ -49,7 +49,7 @@ app.post('/api/products', (async (req: Request, res: Response) => {
 
 // == Order Endpoints (Mainly for Admin/Fetching All) ==
 // Explicitly type the async handler with RequestHandler
-app.get('/api/orders/all', (async (req: Request, res: Response) => { // Wrap async logic
+app.get('/orders/all', (async (req: Request, res: Response) => { // Wrap async logic
     console.log("GET /orders/all request received");
     try {
         const orders = await getAllOrderStates();
@@ -62,7 +62,7 @@ app.get('/api/orders/all', (async (req: Request, res: Response) => { // Wrap asy
 
 // == Admin Endpoint ==
 // Explicitly type the async handler
-app.post('/api/admin/orders/:tradeId/set-state', (async (req: Request, res: Response) => { // Wrap async logic
+app.post('/admin/orders/:tradeId/set-state', (async (req: Request, res: Response) => { // Wrap async logic
     const { tradeId } = req.params;
     const { status } = req.body;
     console.log(`POST /admin/orders/${tradeId}/set-state request received with status: ${status}`);
